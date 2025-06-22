@@ -132,6 +132,8 @@
 			}
 		</style>
 	{/if}
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6435495116520303"
+     crossorigin="anonymous"></script>
 </svelte:head>
 
 <!-- FIXME: if user resizes between desktop/mobile, highlight of page disappears (only shows on original size) -->
