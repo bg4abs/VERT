@@ -12,7 +12,7 @@ export class PandocConverter extends Converter {
 		super();
 		if (!browser) return;
 		(async () => {
-			this.wasm = await fetch("/pandoc.wasm").then((r) =>
+			this.wasm = await fetch("https://asset.my-converter.com/pandoc.wasm").then((r) =>
 				r.arrayBuffer(),
 			);
 			this.ready = true;
