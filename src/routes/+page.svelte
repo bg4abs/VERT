@@ -131,7 +131,9 @@
 						{/if}
 						<p>
 							<b>Status: </b>
-							{s.ready ? "ready" : "not ready"}
+							<span class={s.ready ? "text-green-500" : "text-red-500"}>
+								{s.ready ? "ready" : "not ready"}
+							</span>
 						</p>
 						<p>
 							<span class="flex flex-wrap justify-center">
