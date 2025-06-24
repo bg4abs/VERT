@@ -1,6 +1,6 @@
 <script lang="ts">
   import { locale } from 'svelte-i18n';
-  import { Dropdown } from '$lib/components/functional';
+  import Dropdown from '$lib/components/functional/Dropdown.svelte';
 
   const languages = [
     { value: 'en', label: 'English' },
