@@ -1,24 +1,32 @@
 <script lang="ts">
   import { locale } from 'svelte-i18n';
   import Dropdown from '$lib/components/functional/Dropdown.svelte';
+  import { browser } from '$app/environment';
 
   const languages = [
     { value: 'en', label: 'English' },
     { value: 'zh', label: '中文' }
   ];
 
+  let initialLocale = 'en';
+  if (browser) {
+    initialLocale = localStorage.getItem('preferred-locale') || 'en';
+  }
+
   function handleLanguageChange(value: string) {
     locale.set(value);
-    if (typeof window !== 'undefined') {
+    if (browser) {
       localStorage.setItem('preferred-locale', value);
     }
   }
+
+  $: currentLocale = $locale || initialLocale;
 </script>
 
 <div class="language-selector">
   <Dropdown
     items={languages}
-    value={$locale}
+    value={currentLocale}
     onChange={handleLanguageChange}
   />
 </div>
