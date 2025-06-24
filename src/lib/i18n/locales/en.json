@@ -1,0 +1,30 @@
+{
+  "_metadata": {
+    "version": "1.0",
+    "lastUpdated": "2024-03-14",
+    "locale": "en"
+  },
+  "home": {
+    "title": "The file converter you'll love.",
+    "description": "All image, audio, and document processing is done on your device. Videos are converted on our lightning-fast servers. No file size limit, no ads, and completely open source.",
+    "supports": "VERT supports...",
+    "status": {
+      "label": "Status",
+      "ready": "ready",
+      "not_ready": "not ready"
+    },
+    "formats": {
+      "label": "Supported formats",
+      "local_support": "Local fully supported",
+      "video_note": "Video uploads to a server for processing by default, learn how to set it up locally",
+      "video_link": "here",
+      "format_tooltip": "This format can only be converted as {type}."
+    }
+  },
+  "categories": {
+    "images": "Images",
+    "audio": "Audio",
+    "documents": "Documents",
+    "video": "Video"
+  }
+} 

@@ -49,6 +49,7 @@
 		"music-metadata": "^11.0.0",
 		"p-queue": "^8.1.0",
 		"riff-file": "^1.0.3",
+		"svelte-i18n": "^4.0.1",
 		"vert-wasm": "^0.0.2",
 		"vite-plugin-static-copy": "^2.2.0",
 		"vite-plugin-wasm": "^3.4.1",

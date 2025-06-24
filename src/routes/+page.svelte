@@ -3,6 +3,7 @@
 	import Tooltip from "$lib/components/visual/Tooltip.svelte";
 	import { converters } from "$lib/converters";
 	import { vertdLoaded } from "$lib/store/index.svelte";
+	import { _ } from 'svelte-i18n';
 	import clsx from "clsx";
 	import { AudioLines, BookText, Check, Film, Image } from "lucide-svelte";
 
@@ -22,22 +23,22 @@
 			icon: typeof Image;
 		};
 	} = $derived({
-		Images: {
+		[$_('categories.images')]: {
 			ready: converters.find((c) => c.name === "libvips")?.ready || false,
 			formats: getSupportedFormats("libvips"),
 			icon: Image,
 		},
-		Audio: {
+		[$_('categories.audio')]: {
 			ready: converters.find((c) => c.name === "ffmpeg")?.ready || false,
 			formats: getSupportedFormats("ffmpeg"),
 			icon: AudioLines,
 		},
-		Documents: {
+		[$_('categories.documents')]: {
 			ready: converters.find((c) => c.name === "pandoc")?.ready || false,
 			formats: getSupportedFormats("pandoc"),
 			icon: BookText,
 		},
-		Video: {
+		[$_('categories.video')]: {
 			ready:
 				converters.find((c) => c.name === "vertd")?.ready ||
 				(false && $vertdLoaded),
@@ -56,9 +57,9 @@
 		);
 
 		if (formatInfo) {
-			return `This format can only be converted as ${
-				formatInfo.fromSupported ? "input (from)" : "output (to)"
-			}.`;
+			return $_('home.formats.format_tooltip', {
+				values: { type: formatInfo.fromSupported ? "input (from)" : "output (to)" }
+			});
 		}
 		return "";
 	};
@@ -73,14 +74,12 @@
 				<h1
 					class="text-4xl px-12 md:p-0 md:text-6xl flex-wrap tracking-tight leading-tight md:leading-[72px] mb-4 md:mb-6"
 				>
-					The file converter you'll love.
+					{$_('home.title')}
 				</h1>
 				<p
 					class="font-normal px-5 md:p-0 text-lg md:text-xl text-black text-muted dynadark:text-muted"
 				>
-					All image, audio, and document processing is done on your
-					device. Videos are converted on our lightning-fast servers.
-					No file size limit, no ads, and completely open source.
+					{$_('home.description')}
 				</p>
 			</div>
 			<div class="flex-grow w-full h-72">
@@ -92,7 +91,7 @@
 	<hr />
 
 	<div class="mt-10 md:mt-16">
-		<h2 class="text-center text-4xl">VERT supports...</h2>
+		<h2 class="text-center text-4xl">{$_('home.supports')}</h2>
 
 		<div class="flex gap-4 mt-8 md:flex-row flex-col">
 			{#each Object.entries(status) as [key, s]}
@@ -101,10 +100,10 @@
 					<div class="file-category-card-inner">
 						<div
 							class={clsx("icon-container", {
-								"bg-accent-blue": key === "Images",
-								"bg-accent-purple": key === "Audio",
-								"bg-accent-green": key === "Documents",
-								"bg-accent-red": key === "Video",
+								"bg-accent-blue": key === $_('categories.images'),
+								"bg-accent-purple": key === $_('categories.audio'),
+								"bg-accent-green": key === $_('categories.documents'),
+								"bg-accent-red": key === $_('categories.video'),
 							})}
 						>
 							<Icon size="20" />
@@ -113,31 +112,30 @@
 					</div>
 
 					<div class="file-category-card-content flex-grow">
-						{#if key === "Video"}
+						{#if key === $_('categories.video')}
 							<p>
-								Video uploads to a server for processing by
-								default, learn how to set it up locally <a
+								{$_('home.formats.video_note')} <a
 									target="_blank"
 									href="https://github.com/VERT-sh/VERT/wiki/How-to-convert-video-with-VERT"
-									>here</a
+									>{$_('home.formats.video_link')}</a
 								>.
 							</p>
 						{:else}
 							<p
 								class="flex items-center justify-center gap-2 h-full"
 							>
-								<Check size="20" /> Local fully supported
+								<Check size="20" /> {$_('home.formats.local_support')}
 							</p>
 						{/if}
 						<p>
-							<b>Status: </b>
+							<b>{$_('home.status.label')}: </b>
 							<span class={s.ready ? "text-green-500" : "text-red-500"}>
-								{s.ready ? "ready" : "not ready"}
+								{s.ready ? $_('home.status.ready') : $_('home.status.not_ready')}
 							</span>
 						</p>
 						<p>
 							<span class="flex flex-wrap justify-center">
-								<b>Supported formats:&nbsp;</b>
+								<b>{$_('home.formats.label')}:&nbsp;</b>
 								{#each s.formats.split(", ") as format, index}
 									{@const isPartial = format.endsWith("*")}
 									{@const formatName = isPartial

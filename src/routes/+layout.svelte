@@ -19,6 +19,8 @@
 	import "$lib/css/app.scss";
 	import { browser } from "$app/environment";
 	import { page } from "$app/state";
+	import "$lib/i18n";
+	import LanguageSelector from "$lib/components/functional/LanguageSelector.svelte";
 
 	let { children, data } = $props();
 	let enablePlausible = $state(false);
@@ -169,3 +171,7 @@
 
 <!-- Gradients placed here to prevent it overlapping in transitions -->
 <Layout.Gradients />
+
+<div class="fixed top-4 right-4 z-50">
+	<LanguageSelector />
+</div>
