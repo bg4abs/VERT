@@ -26,7 +26,7 @@
 <div class="language-selector">
   <Dropdown
     items={languages}
-    value={currentLocale}
+    value={currentLocale || 'en'}
     onChange={handleLanguageChange}
   />
 </div>

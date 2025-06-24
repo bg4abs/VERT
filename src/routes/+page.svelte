@@ -3,7 +3,7 @@
 	import Tooltip from "$lib/components/visual/Tooltip.svelte";
 	import { converters } from "$lib/converters";
 	import { vertdLoaded } from "$lib/store/index.svelte";
-	import { _ } from 'svelte-i18n';
+	import { _, isLoading } from 'svelte-i18n';
 	import clsx from "clsx";
 	import { AudioLines, BookText, Check, Film, Image } from "lucide-svelte";
 
@@ -65,6 +65,7 @@
 	};
 </script>
 
+{#if !$isLoading}
 <div class="max-w-6xl w-full mx-auto px-6 md:px-8">
 	<div class="flex items-center justify-center pb-10 md:py-16">
 		<div
@@ -168,6 +169,7 @@
 		</div>
 	</div>
 </div>
+{/if}
 
 <style>
 	.file-category-card {
