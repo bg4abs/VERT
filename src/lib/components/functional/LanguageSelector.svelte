@@ -9,14 +9,9 @@
 
   function handleLanguageChange(value: string) {
     locale.set(value);
-    // 可选：将用户的语言选择保存到 localStorage
-    localStorage.setItem('preferred-locale', value);
-  }
-
-  // 初始化时从 localStorage 读取语言设置
-  const savedLocale = localStorage.getItem('preferred-locale');
-  if (savedLocale) {
-    locale.set(savedLocale);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('preferred-locale', value);
+    }
   }
 </script>
 
