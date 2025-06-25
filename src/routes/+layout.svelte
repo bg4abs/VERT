@@ -19,13 +19,22 @@
 	import "$lib/css/app.scss";
 	import { browser } from "$app/environment";
 	import { page } from "$app/state";
-	import "$lib/i18n";
+	import { initializeI18n } from "$lib/i18n";
+	import { locale } from 'svelte-i18n';
 	import LanguageSelector from "$lib/components/functional/LanguageSelector.svelte";
 
 	let { children, data } = $props();
 	let enablePlausible = $state(false);
 
 	let scrollPositions = new Map<string, number>();
+
+	// 初始化 i18n
+	initializeI18n();
+
+	// 设置 HTML lang 属性
+	$: if (browser) {
+		document.documentElement.lang = $locale;
+	}
 
 	beforeNavigate((nav) => {
 		if (!nav.from || !$isMobile) return;
