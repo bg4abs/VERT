@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 	import { goto, beforeNavigate, afterNavigate } from "$app/navigation";
+	import { initializeI18n } from "$lib/i18n";
 
 	import { PUB_PLAUSIBLE_URL, PUB_HOSTNAME } from "$env/static/public";
 	import { VERT_NAME } from "$lib/consts";
@@ -19,7 +20,6 @@
 	import "$lib/css/app.scss";
 	import { browser } from "$app/environment";
 	import { page } from "$app/state";
-	import "$lib/i18n";
 	import LanguageSelector from "$lib/components/functional/LanguageSelector.svelte";
 
 	let { children, data } = $props();
@@ -58,6 +58,7 @@
 	};
 
 	onMount(() => {
+		initializeI18n();
 		isMobile.set(window.innerWidth <= 768);
 		window.addEventListener("resize", () => {
 			isMobile.set(window.innerWidth <= 768);
