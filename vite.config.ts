@@ -52,6 +52,7 @@ export default defineConfig(({ command }) => {
 	}
 
 	return {
+		base: '',
 		plugins,
 		worker: {
 			plugins: () => [wasm()],
