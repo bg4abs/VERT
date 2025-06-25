@@ -3,8 +3,11 @@
   "include": ["/*"],
   "exclude": [
     "/_app/*",
-    "/favicon.png",
+    "/favicon*",
     "/manifest.json",
-    "/200.html"
+    "/200.html",
+    "/*.js",
+    "/*.css",
+    "/*.woff2"
   ]
 } 
