@@ -13,5 +13,5 @@ export const load = ({ data }) => {
 	return data;
 };
 
-export const prerender = true;
+export const prerender = false;
 export const trailingSlash = "always";
