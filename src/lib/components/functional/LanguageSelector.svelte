@@ -23,6 +23,7 @@
   $: currentLocale = $locale || initialLocale;
 </script>
 
+{#if browser}
 <div class="language-selector">
   <Dropdown
     items={languages}
@@ -30,6 +31,7 @@
     onChange={handleLanguageChange}
   />
 </div>
+{/if}
 
 <style>
   .language-selector {

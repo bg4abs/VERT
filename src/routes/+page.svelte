@@ -4,6 +4,7 @@
 	import { converters } from "$lib/converters";
 	import { vertdLoaded } from "$lib/store/index.svelte";
 	import { _, isLoading } from 'svelte-i18n';
+	import { browser } from '$app/environment';
 	import clsx from "clsx";
 	import { AudioLines, BookText, Check, Film, Image } from "lucide-svelte";
 
@@ -65,7 +66,7 @@
 	};
 </script>
 
-{#if !$isLoading}
+{#if browser && !$isLoading}
 <div class="max-w-6xl w-full mx-auto px-6 md:px-8">
 	<div class="flex items-center justify-center pb-10 md:py-16">
 		<div
