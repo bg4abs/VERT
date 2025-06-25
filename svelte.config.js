@@ -20,11 +20,17 @@ const config = {
 		}),
 		paths: {
 			base: '',
-			// 使用相对路径
-			relative: true,
+			assets: '/_app',
+			relative: true
 		},
 		// 确保资源路径正确
 		appDir: '_app',
+		files: {
+			assets: 'static',
+			lib: 'src/lib',
+			routes: 'src/routes'
+		},
+		inlineStyleThreshold: 5000,
 		env: {
 			publicPrefix: "PUB_",
 			privatePrefix: "PRI_",

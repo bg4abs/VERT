@@ -2,12 +2,16 @@
   "version": 1,
   "include": ["/*"],
   "exclude": [
-    "/_app/*",
+    "/_app/immutable/*",
+    "/_app/assets/*",
     "/favicon*",
     "/manifest.json",
     "/200.html",
     "/*.js",
     "/*.css",
-    "/*.woff2"
+    "/*.woff2",
+    "/*.png",
+    "/*.jpg",
+    "/*.svg"
   ]
 } 

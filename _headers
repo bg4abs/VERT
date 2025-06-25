@@ -9,6 +9,13 @@
 
 /_app/immutable/*
   Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+/_app/assets/*
+  Cache-Control: public, max-age=31536000
+  Access-Control-Allow-Origin: *
 
 /200.html
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
