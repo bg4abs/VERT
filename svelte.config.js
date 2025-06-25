@@ -25,7 +25,6 @@ const config = {
 		},
 		// 确保资源路径正确
 		appDir: '_app',
-		trailingSlash: 'always',
 		env: {
 			publicPrefix: "PUB_",
 			privatePrefix: "PRI_",
