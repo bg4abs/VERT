@@ -139,7 +139,8 @@
      crossorigin="anonymous"></script>
 </svelte:head>
 
-<!-- FIXME: if user resizes between desktop/mobile, highlight of page disappears (only shows on original size) -->
+{#if browser}
+<!-- 页面内容全部包裹在此，确保依赖i18n的内容只在CSR渲染 -->
 <div
 	class="flex flex-col min-h-screen h-full w-full overflow-x-hidden"
 	ondrop={dropFiles}
@@ -176,3 +177,4 @@
 <div class="fixed top-4 right-4 z-50">
 	<LanguageSelector />
 </div>
+{/if}

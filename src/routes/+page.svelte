@@ -66,7 +66,7 @@
 	};
 </script>
 
-{#if browser && !$isLoading}
+{#if browser}
 <div class="max-w-6xl w-full mx-auto px-6 md:px-8">
 	<div class="flex items-center justify-center pb-10 md:py-16">
 		<div
