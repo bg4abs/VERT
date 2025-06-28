@@ -12,5 +12,3 @@ export const load = ({ data }) => {
 
 	return data;
 };
-
-export const trailingSlash = "always";
