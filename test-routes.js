@@ -17,7 +17,7 @@ try {
   console.log('构建目录内容:', buildDir);
 
   // 检查关键文件
-  const criticalFiles = ['200.html', '_app', 'assets'];
+  const criticalFiles = ['200.html', '_app'];
   for (const file of criticalFiles) {
     if (existsSync(join('build', file))) {
       console.log(`✅ ${file} 存在`);
@@ -43,14 +43,24 @@ try {
     
     if (existsSync('build/_app/immutable')) {
       const immutableDir = readdirSync('build/_app/immutable');
-      console.log('_app/immutable 目录内容:', immutableDir.slice(0, 5), '...');
+      console.log('_app/immutable 目录内容:', immutableDir.slice(0, 10), '...');
+      
+      // 检查是否有带 hash 的文件
+      const hashedFiles = immutableDir.filter(file => file.includes('-'));
+      console.log('带 hash 的文件数量:', hashedFiles.length);
+      
+      if (hashedFiles.length === 0) {
+        console.warn('⚠️  警告: 没有找到带 hash 的文件');
+      } else {
+        console.log('✅ 找到带 hash 的文件');
+      }
+      
+      // 检查 assets 子目录
+      if (existsSync('build/_app/immutable/assets')) {
+        const assetsDir = readdirSync('build/_app/immutable/assets');
+        console.log('_app/immutable/assets 目录内容:', assetsDir.slice(0, 5), '...');
+      }
     }
-  }
-
-  // 检查 assets 目录
-  if (existsSync('build/assets')) {
-    const assetsDir = readdirSync('build/assets');
-    console.log('assets 目录内容:', assetsDir.slice(0, 5), '...');
   }
 
   console.log('\n✅ 路由配置测试完成！');
@@ -58,6 +68,7 @@ try {
   console.log('1. 确保 Cloudflare Pages 的构建命令是: npm run build');
   console.log('2. 确保构建输出目录是: build');
   console.log('3. 确保根目录包含: 200.html');
+  console.log('4. 确保 _app/immutable 目录包含应用文件');
   
 } catch (error) {
   console.error('\n❌ 路由配置测试失败:', error.message);

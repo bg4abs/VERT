@@ -5,8 +5,6 @@
     "/favicon*",
     "/manifest.json",
     "/robots.txt",
-    "/sitemap.xml",
-    "/assets/*",
-    "/_app/immutable/*"
+    "/sitemap.xml"
   ]
 }

@@ -6,6 +6,7 @@
 		"dev": "vite dev",
 		"build": "svelte-kit sync && vite build",
 		"build:verify": "node build-verify.js",
+		"build:fix": "node fix-build.js",
 		"test:routes": "node test-routes.js",
 		"sync": "svelte-kit sync",
 		"preview": "vite preview",
