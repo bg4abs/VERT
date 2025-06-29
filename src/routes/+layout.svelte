@@ -132,8 +132,20 @@
 			}
 		</style>
 	{/if}
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6435495116520303"
-     crossorigin="anonymous"></script>
+	<!-- Google AdSense with error handling -->
+	<script>
+		// 添加错误处理以避免 reCAPTCHA 错误影响用户体验
+		(function() {
+			const script = document.createElement('script');
+			script.async = true;
+			script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6435495116520303';
+			script.crossOrigin = 'anonymous';
+			script.onerror = function() {
+				console.warn('Google AdSense failed to load');
+			};
+			document.head.appendChild(script);
+		})();
+	</script>
 </svelte:head>
 
 <!-- FIXME: if user resizes between desktop/mobile, highlight of page disappears (only shows on original size) -->
