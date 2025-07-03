@@ -78,7 +78,7 @@
 				<p
 					class="font-normal px-5 md:p-0 text-lg md:text-xl text-black text-muted dynadark:text-muted"
 				>
-					All image, audio, and document processing is done on your <b>OWN</b> device. Videos are converted on our lightning-fast servers.
+					All image, audio, and document processing is done on your <b style='color:red'>OWN</b> device. Videos are converted on our lightning-fast servers.
 					No file size limit, no ads, and completely open source.
 				</p>
 			</div>
