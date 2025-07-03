@@ -131,7 +131,7 @@
 						<p>
 							<b>Status: </b>
 							<span class={s.ready ? "text-green-500" : "text-red-500"}>
-								{s.ready ? "ready" : "not ready"}
+								{s.ready ? "ready" : "converter loading...Please Wait..."}
 							</span>
 						</p>
 						<p>
