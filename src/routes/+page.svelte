@@ -86,12 +86,12 @@
 				>
 					For PDFs, Please visit 
 					<a 
-						href="https://pdftoolbox.org" 
+						href="https://pdfhush.app" 
 						target="_blank" 
 						rel="noopener noreferrer"
 						class="pdf-link inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-semibold underline decoration-2 underline-offset-2 hover:decoration-4 transition-all duration-200 hover:scale-105"
 					>
-						pdftoolbox.org
+						pdfhush.app
 						<svg class="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
 						</svg>
